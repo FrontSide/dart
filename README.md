@@ -6,6 +6,8 @@ It has an API, and so this is a script for judging when to leave for the DART.
 It will tell you the next few trains, their destination, departure time, and
 when you should leave your current location to catch them.
 
+Note that the Google API only works with your own API Key!
+
 ## Help
 ```
 $ ./dart.py --help
@@ -20,13 +22,14 @@ optional arguments:
   -s, --southbound      Use this if you're going southbound
   -w WALK_TIME, --walk-time WALK_TIME
                         The walk time (in minutes) from where you are to the
-                        departure station
+                        departure station.
+			If you omit this argument, your walk-time will be estimated based on your current location.
 ```
 
 ## Example
-You want to leave from Tara Street, go southbound, and the walk-time to the station is 10 mins
+You want to leave from Tara Street, go southbound.
 ```
-$ ./dart.py "Tara Street" --southbound --walk-time 10
+$ ./dart.py "Tara Street" --southbound
 Destination     Due  Departs   Leave
 Bray         14 min    19:13   4 min
 Greystones   29 min    19:28  19 min
