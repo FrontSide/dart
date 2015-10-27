@@ -17,13 +17,18 @@ positional arguments:
   departure_station     The departure station
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -n, --northbound      Use this if you're going northbound
-  -s, --southbound      Use this if you're going southbound
-  -w WALK_TIME, --walk-time WALK_TIME
-                        The walk time (in minutes) from where you are to the
-                        departure station.
-			If you omit this argument, your walk-time will be estimated based on your current location.
+-h, --help            show this help message and exit
+-n, --northbound      Use this if you're going northbound
+-s, --southbound      Use this if you're going southbound
+-w WALK_TIME, --walk-time WALK_TIME
+                      The walk time (in minutes) from where you are to the
+                      departure station. If you omit this argument, your
+                      walk-time will be estimated based on your current
+                      location.
+--google-api-key G_API_KEY
+                      Your Google API Key for the Location and Distance
+                      Service.
+
 ```
 
 ## Example
@@ -37,4 +42,14 @@ Bray         44 min    19:43  34 min
 Greystones   59 min    19:58  49 min
 Bray         74 min    20:13  64 min
 Greystones   90 min    20:29  80 min
+```
+
+You want to leave from Howth and you know that your walk-time to the station
+is 14 min.
+```
+$ ./dart.py "Howth" --southbound -w 14
+Destination         Due  Departs   Leave
+Bray             26 min    12:15  12 min
+Bray             56 min    12:45  42 min
+Bray             86 min    13:15  72 min
 ```
